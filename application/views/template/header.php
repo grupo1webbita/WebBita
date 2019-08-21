@@ -104,6 +104,10 @@ if (!$this->session->userdata('usuario')) {
                             <a class="nav-link dropdown-toggle text-muted" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-bars" aria-hidden="true"></i></a>
                             <div class="dropdown-menu dropdown-menu-right animated zoomIn">
                                 <ul class="dropdown-user">
+
+                                	<?php if($this->session->userdata('id_usuario')==1){ ?>
+                                	<li><a href="<?php echo base_url('index.php/Dashboard/registrarUsuario'); ?>"><i class="fa fa-plus"></i> Registrar Usuario</a></li> <?php }  ?>
+
                                     <li><a href="<?php echo base_url('index.php/Dashboard'); ?>"><i class="fa fa-plus"></i> Registrar Hito</a></li>
                                     <li><a href="<?php echo base_url('index.php/Dashboard/rutaViaje'); ?>"><i class="fa fa-map-marker"></i> Ruta de viaje</a></li>
                                     <!-- <li><a href="#"><i class="ti-user"></i> Perfil</a></li> -->

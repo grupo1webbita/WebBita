@@ -172,6 +172,18 @@ class Dashboard extends CI_Controller {
 		$this->load->view('template/footer');
 	}
 
+	//Nueva Agregacion:
+		public function registrarUsuario(){
+
+		$data["mensajes"] = $this->checkMensajesNuevos()[0];
+		$data["mensajesNuevos"] = $this->checkMensajesNuevos()[1];
+		//$data["tabla_Asistentes"] = $this->C_obtenerUsuario();
+		$this->load->view('template/header',$data);
+		$this->load->view('template/registrarUsuario',$data);
+		$this->load->view('template/footer');
+		
+	}
+
 
 	public function inbox($id_usuario_para = 0){
 		$data["mensajes"] = $this->checkMensajesNuevos()[0];

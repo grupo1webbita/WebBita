@@ -2,7 +2,7 @@
             <!-- Bread crumb -->
             <div class="row page-titles">
                 <div class="col-md-5 align-self-center">
-                    <h3 style="color:#ffffff;">Lista de asistentes</h3> </div>
+                    <h3 style="color:#ffffff;">Nuevo Usuario</h3> </div>
             </div>
             <!-- End Bread crumb -->
             <!-- Container fluid  -->
@@ -17,7 +17,7 @@
                         <div class="card card-outline-info">
                             
                             <div class="card-body m-t-15">
-                                <legend>Asistentes</legend>
+                                <legend>Nuevo Usuario</legend>
                                 <form action="#" class="form-horizontal form-bordered">
                                     <div class="form-body">                                      
                                         
@@ -76,13 +76,13 @@
                 </div>
 
 
-               <!-- <div class="row">
+                <div class="row">
                     <div class="col-lg-1"></div>
                     <div class="col-lg-10">
                         <div class="card card-outline-info">
                             
                             <div class="card-body m-t-15">
-                                <legend>Lista de Asistentes</legend>
+                                <legend>Lista de Usuarios</legend>
                                 <div class="table-responsive">
                                     <table class="table table-hover table-borderer table-condensed">
                                         <thead>
@@ -97,8 +97,8 @@
                                         </thead>
                                         <tbody id="cuerpo">
                                             <?php 
-                                            if(isset($tabla_Asistentes)){
-                                                echo $tabla_Asistentes;
+                                            if(isset($tabla_Usuarios)){
+                                                echo $tabla_Usuarios;
                                             }?> 
                                         </tbody>
                                         
@@ -107,7 +107,7 @@
                             </div>
                         </div>
                     </div>
-                </div> -->
+                </div>
 
                 
                 
@@ -122,7 +122,9 @@
                     var Rut      = $("input[name='rut']").val();
                     var Edad     = $("input[name='edad']").val();
                     var Club     = $("input[name='club']").val();
+
                     var Telefono = $("input[name='fono']").val();
+
 
 
                     // inicio AJAX
@@ -133,7 +135,8 @@
                                ,rut:Rut
                                ,edad:Edad
                                ,club:Club
-                               ,telefono:Telefono},
+                               ,telefono:Telefono
+                                ,id:2},
                         beforeSend:function(){
                             $("#cuerpo").html('<div class="row">\
                                                 <div class="col-lg-1"></div>\
@@ -160,10 +163,10 @@
                     
                 });
 
-                $('#cuerpo').on('click','.b_borrar',function(){
+              /*  $('#cuerpo').on('click','.b_borrar',function(){
                     // inicio AJAX
                     $.ajax({
-                        url: "<?php echo base_url('index.php/Dashboard/C_borrarUsuario/'); ?>",
+                        url: "<?php// echo base_url('index.php/Dashboard/C_borrarUsuario/'); ?>",
                         type: "post",
                         data: { id_usuario:$(this).val()},
                         beforeSend:function(){
@@ -190,7 +193,7 @@
               
                 $(document).ready(function(){
                     
-                });
+                });*/
                 // Obtención de coordenadas 
              
                 

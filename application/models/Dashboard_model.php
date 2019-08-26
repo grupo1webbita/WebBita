@@ -23,6 +23,11 @@ class Dashboard_model extends CI_Model {
 		$this->db->insert('asistentes', $datosAsistentes);
 		return $this->db->affected_rows();
 	}
+	//Guaradar usuario (FerminKrause)
+	public function M_guardarUsuario($datosAsistentes){
+		$this->db->insert('usuario', $datosAsistentes);
+		return $this->db->affected_rows();
+	}
 
 	public function M_obtenerHitos($id_delegacion = 0){
 		$this->db->order_by('fecha', 'DESC');
@@ -88,6 +93,15 @@ class Dashboard_model extends CI_Model {
 		return $query->result();
 
 	}
+	//FEEERRRRRRRRRRRRRRRMIIIIIIIIIIIIIIIIIIIIIIIIIIINNNN************************
+	public function M_obtenerUsuario(){
+		$id = 2;
+		$this->db->order_by('nombre_completo', 'ASC');
+		$query = $this->db->get_where('usuario', array('id_perfil' => $id));
+
+		return $query->result();
+
+	}
 
 	public function M_obtenerEstadosViaje(){
 		$query = $this->db->get('estados_viaje');
@@ -96,7 +110,7 @@ class Dashboard_model extends CI_Model {
 	}
 
 	public function M_obtenerUsuarios($id_user = 0){
-		$this->db->order_by('nombre_completo', 'ASC');
+		$this->db->order_by('nombre_completo', 'DSC');
 		if ($id_user != 0) {
 			$this->db->where("id_usuario =",$id_user);
 			$query = $this->db->get('usuario');
@@ -108,6 +122,12 @@ class Dashboard_model extends CI_Model {
 
 	public function M_borrarAsistente($id_asistente){
 		$this->db->delete('asistentes', array('id_asistente' => $id_asistente));
+		return $this->db->affected_rows();
+	}
+//FERMIIIIIIIIIIIIIIINNNNNNNN******************************************
+
+		public function M_borrarUsuario($id_usuario){
+		$this->db->delete('usuario', array('id_usuario' => $id_usuario));
 		return $this->db->affected_rows();
 	}
 

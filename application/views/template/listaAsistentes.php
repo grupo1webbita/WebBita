@@ -63,7 +63,7 @@
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="row">
-                                                    <div align="right" class="offset-sm-2 col-md-9">
+                                                    <div class="offset-sm-2 col-md-9">
                                                         <button type="button" id="registrarAsistente" class="btn btn-primary"> <i class="fa fa-check"></i> Registrar Asistente</button>
                                                     </div>
                                                 </div>

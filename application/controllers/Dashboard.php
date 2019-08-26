@@ -171,13 +171,12 @@ class Dashboard extends CI_Controller {
 		$this->load->view('template/listaAsistentes',$data);
 		$this->load->view('template/footer');
 	}
-
 	//Nueva Agregacion:
 		public function registrarUsuario(){
 
 		$data["mensajes"] = $this->checkMensajesNuevos()[0];
 		$data["mensajesNuevos"] = $this->checkMensajesNuevos()[1];
-		//$data["tabla_Asistentes"] = $this->C_obtenerUsuario();
+		$data["tabla_Usuarios"] = $this->C_obtenerUsuario();
 		$this->load->view('template/header',$data);
 		$this->load->view('template/registrarUsuario',$data);
 		$this->load->view('template/footer');
@@ -351,6 +350,25 @@ class Dashboard extends CI_Controller {
 			echo $this->C_obtenerAsistentes(1);
 		}
 	}
+//FERMIIIIIIIIIIIIIIIIIIIIIIINNN*****************************
+		public function guardarUsuario(){
+
+
+		$datosAsistentes = array('id_perfil'=>$this->input->post('id')
+			                    ,'nombre_completo'=> $this->input->post('nombre')
+			                    ,'edad'=>$this->input->post('rut')
+			                    ,'correo'=>$this->input->post('edad')
+			                    ,'usuario'=>$this->input->post('club')
+			                    ,'password'=>$this->input->post('telefono'));
+
+		$resp = $this->Dashboard_model->M_guardarUsuario($datosAsistentes);
+
+		if($resp == 0){
+			echo "ERROR";
+		}else{
+			echo $this->C_obtenerUsuario(1);
+		}
+	}
 
 
 
@@ -474,6 +492,37 @@ public function C_obtenerHistorialEstados($output = 0){
 
 
 	}
+	//FEEEEEEEEEEEEEERRRRMIIIIIIIIIIIIIIIIIIIIIINNNNNNNNNNNNNNN*********************************************
+
+	public function C_obtenerUsuario($output = 0){
+		$resp = $this->Dashboard_model->M_obtenerUsuario();
+		$tabla_Usuarios = "";
+		$contador= 1;
+		foreach ($resp as $fila) {
+			$tabla_Usuarios .= "<tr>
+								  	<td>".$contador++."</td>
+	                    			<td>".$fila->nombre_completo."</td>
+	                    			<td>".$fila->edad."</td>
+	                    			<td>".$fila->correo."</td>
+	                    			<td>".$fila->usuario."</td>
+	                    			<td>
+										
+	                    				<!-- <button type='button' class='btn btn-warning btn-flat btn-addon b_editar'><i class='ti-user'></i>Editar</button> -->
+	                    			</td>
+	                    			<td>
+	                    				
+	                    				<button type='button' value='".$fila->id_usuario."' class='btn btn-danger btn-flat btn-addon b_borrar'><i class='fa fa-times' aria-hidden='true'></i>Borrar</button>
+	                    			</td>
+								  </tr>";
+		}
+		if ($output == 1){
+			echo $tabla_Usuarios;
+		}else{
+			return $tabla_Usuarios;
+		}
+
+
+	}
 
 	public function C_guardarHito(){
 
@@ -531,6 +580,15 @@ public function C_obtenerHistorialEstados($output = 0){
 			echo "ERROR";
 		}else{
 			echo $this->C_obtenerAsistentes(1);
+		}
+	}
+//FERMIIIIIIIIIIIIIIIIINNNNN ***********************************
+	public function C_borrarUsuario(){
+		$resp = $this->Dashboard_model->M_borrarUsuario($this->input->post("id_usuario"));
+		if($resp == 0){
+			echo "ERROR";
+		}else{
+			echo $this->C_obtenerUsuario(1);
 		}
 	}
 

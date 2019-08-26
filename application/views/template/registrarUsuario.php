@@ -18,7 +18,7 @@
                             
                             <div class="card-body m-t-15">
                                 <legend>Nuevo Usuario</legend>
-                                <form action="#" class="form-horizontal form-bordered">
+                                <form action="#" class="form-horizontal form-bordered" method="post">
                                     <div class="form-body">                                      
                                         
                                         
@@ -124,6 +124,10 @@
                     var Club     = $("input[name='club']").val();
 
                     var Telefono = $("input[name='fono']").val();
+                   
+
+                    
+                    
 
 
 

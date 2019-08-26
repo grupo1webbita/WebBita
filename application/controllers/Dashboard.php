@@ -359,7 +359,7 @@ class Dashboard extends CI_Controller {
 			                    ,'edad'=>$this->input->post('rut')
 			                    ,'correo'=>$this->input->post('edad')
 			                    ,'usuario'=>$this->input->post('club')
-			                    ,'password'=>$this->input->post('telefono'));
+			                    ,'password'=>sha1($this->input->post('telefono')));
 
 		$resp = $this->Dashboard_model->M_guardarUsuario($datosAsistentes);
 

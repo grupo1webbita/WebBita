@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://localhost/WebBita2/'; //Lo cambie para poder usar el respaldo de buena manera
+$config['base_url'] = 'http://localhost/WebBitaR/'; //Lo cambie para poder usar el respaldo de buena manera
 
 /*
 |--------------------------------------------------------------------------

@@ -18,7 +18,7 @@
                             
                             <div class="card-body m-t-15">
                                 <legend>Nuevo Usuario</legend>
-                                <form action="#" class="form-horizontal form-bordered">
+                                <form action="#" class="form-horizontal form-bordered" method="post">
                                     <div class="form-body">                                      
                                         
                                         
@@ -40,6 +40,13 @@
                                             <label class="control-label col-md-3">Correo</label>
                                             <div class="col-md-9">
                                                 <input type="text" min="10" name="edad" class="form-control" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label class="control-label col-md-3">Delegacion</label>
+                                            <div class="col-md-9">
+                                                <input type="text" min="10" name="delegacion" class="form-control" required>
                                             </div>
                                         </div>
 
@@ -124,8 +131,7 @@
                     var Club     = $("input[name='club']").val();
 
                     var Telefono = $("input[name='fono']").val();
-
-
+                    var Delegacion = $("input[name='delegacion']").val();//+++++++++++++++++++++++
 
                     // inicio AJAX
                     $.ajax({
@@ -134,6 +140,7 @@
                         data: { nombre:Nombre
                                ,rut:Rut
                                ,edad:Edad
+                               ,delegacion:Delegacion
                                ,club:Club
                                ,telefono:Telefono
                                 ,id:2},
@@ -155,6 +162,8 @@
                              $("input[name='edad']").val("");
                              $("input[name='club']").val("");
                              $("input[name='fono']").val("");
+                             $("input[name='delegacion']").val("");//++++++++++++++++++++++++++
+
 
                           }
                      });
@@ -163,10 +172,10 @@
                     
                 });
 
-              /*  $('#cuerpo').on('click','.b_borrar',function(){
+                $('#cuerpo').on('click','.b_borrar',function(){
                     // inicio AJAX
                     $.ajax({
-                        url: "<?php// echo base_url('index.php/Dashboard/C_borrarUsuario/'); ?>",
+                        url: "<?php echo base_url('index.php/Dashboard/C_borrarUsuario/'); ?>",
                         type: "post",
                         data: { id_usuario:$(this).val()},
                         beforeSend:function(){
@@ -193,7 +202,7 @@
               
                 $(document).ready(function(){
                     
-                });*/
+                });
                 // Obtención de coordenadas 
              
                 

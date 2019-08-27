@@ -113,7 +113,19 @@ class Dashboard_model extends CI_Model {
 
 	}
 		//FEEERRRRRRRRRRRRRRRMIIIIIIIIIIIIIIIIIIIIIIIIIIINNNN************************
-	
+	public function M_obtenerIdDelegaciones($dato){
+		
+		$this->db->select('id_usuario');
+		$this->db->from('usuario');
+		$this->db->where('usuario', $dato);
+
+		$query = $this->db->get();
+//$this->db->get_where('usuario', array('id_delegacion' => 2));
+		
+
+		return $query->row_array();
+
+	}
 
 	public function M_obtenerEstadosViaje(){
 		$query = $this->db->get('estados_viaje');

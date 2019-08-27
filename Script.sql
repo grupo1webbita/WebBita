@@ -27,7 +27,8 @@ CREATE TABLE `asistentes` (
   `rut` varchar(45) NOT NULL,
   `edad` int(11) NOT NULL,
   `club` varchar(45) NOT NULL,
-  `telefono` varchar(45) NOT NULL
+  `telefono` varchar(45) NOT NULL,
+  `direccion` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------

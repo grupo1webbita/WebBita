@@ -376,6 +376,13 @@ class Dashboard extends CI_Controller {
 			echo $this->C_obtenerUsuario(1);
 		}
 
+		$resp3 =$this->Dashboard_model->M_obtenerIdDelegaciones($this->input->post('club'));
+
+	
+		$uno = array('id_usuario'=>$resp3['id_usuario'],'id_delegacion'=>$id2);
+		
+
+		$resp5 = $this->Dashboard_model->M_guardarIdDelegacion($uno);
 	}
 
 

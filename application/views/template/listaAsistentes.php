@@ -97,7 +97,7 @@
                                     			<th>Rut</th>
                                     			<th>Edad</th>
                                     			<th>Teléfono</th>
-                                                
+                                                <th>Direccion</th>
                                     			<th colspan="2">Opciones</th>
                                     		</tr>
                                     	</thead>

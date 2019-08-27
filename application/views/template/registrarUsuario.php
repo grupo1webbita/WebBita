@@ -18,7 +18,7 @@
                             
                             <div class="card-body m-t-15">
                                 <legend>Nuevo Usuario</legend>
-                                <form action="#" class="form-horizontal form-bordered" method="post">
+                                <form action="#" class="form-horizontal form-bordered">
                                     <div class="form-body">                                      
                                         
                                         
@@ -124,10 +124,6 @@
                     var Club     = $("input[name='club']").val();
 
                     var Telefono = $("input[name='fono']").val();
-                   
-
-                    
-                    
 
 
 
@@ -167,10 +163,10 @@
                     
                 });
 
-                $('#cuerpo').on('click','.b_borrar',function(){
+              /*  $('#cuerpo').on('click','.b_borrar',function(){
                     // inicio AJAX
                     $.ajax({
-                        url: "<?php echo base_url('index.php/Dashboard/C_borrarUsuario/'); ?>",
+                        url: "<?php// echo base_url('index.php/Dashboard/C_borrarUsuario/'); ?>",
                         type: "post",
                         data: { id_usuario:$(this).val()},
                         beforeSend:function(){
@@ -197,7 +193,7 @@
               
                 $(document).ready(function(){
                     
-                });
+                });*/
                 // Obtención de coordenadas 
              
                 

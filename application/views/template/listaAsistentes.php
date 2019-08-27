@@ -56,8 +56,12 @@
                                                 <input type="text" name="fono" class="form-control" placeholder="+56 9 1234 5678" required>
                                             </div>
                                         </div>
-                                        
-                                        
+                                        <div class="form-group row">
+                                            <label class="control-label col-md-3">Direccion</label>
+                                            <div class="col-md-9">
+                                                <input type="text" name="direccion" class="form-control" placeholder="Direccion" required>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="form-actions">
                                         <div class="row">
@@ -93,6 +97,7 @@
                                     			<th>Rut</th>
                                     			<th>Edad</th>
                                     			<th>Teléfono</th>
+                                                
                                     			<th colspan="2">Opciones</th>
                                     		</tr>
                                     	</thead>
@@ -124,6 +129,7 @@
 					var Edad     = $("input[name='edad']").val();
 					var Club     = $("input[name='club']").val();
 					var Telefono = $("input[name='fono']").val();
+                    var Direccion = $("input[name='direccion']").val();
 
 
 					// inicio AJAX
@@ -134,7 +140,8 @@
 		                	   ,rut:Rut
 		                	   ,edad:Edad
 		                	   ,club:Club
-		                	   ,telefono:Telefono},
+		                	   ,telefono:Telefono
+                                ,direccion:Direccion},
 		                beforeSend:function(){
 		                    $("#cuerpo").html('<div class="row">\
 											    <div class="col-lg-1"></div>\
@@ -153,6 +160,8 @@
 							 $("input[name='edad']").val("");
 							 $("input[name='club']").val("");
 							 $("input[name='fono']").val("");
+                             $("input[name='direccion']").val("");
+
 
 		                  }
 		             });

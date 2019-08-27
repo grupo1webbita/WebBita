@@ -28,6 +28,16 @@ class Dashboard_model extends CI_Model {
 		$this->db->insert('usuario', $datosAsistentes);
 		return $this->db->affected_rows();
 	}
+	//Guaradar usuario (FerminKrause)
+	public function M_guardarDelegacion($datosAsistentes){
+		$this->db->insert('delegaciones', $datosAsistentes); //++++++++++++++++++++++
+		return $this->db->affected_rows();
+	}
+	//Guaradar usuario (FerminKrause)
+	public function M_guardarIdDelegacion($datosAsistentes){
+		$this->db->insert('delegados_comunicaciones', $datosAsistentes); //++++++++++++++++++++++
+		return $this->db->affected_rows();
+	}
 
 	public function M_obtenerHitos($id_delegacion = 0){
 		$this->db->order_by('fecha', 'DESC');
@@ -102,6 +112,8 @@ class Dashboard_model extends CI_Model {
 		return $query->result();
 
 	}
+		//FEEERRRRRRRRRRRRRRRMIIIIIIIIIIIIIIIIIIIIIIIIIIINNNN************************
+	
 
 	public function M_obtenerEstadosViaje(){
 		$query = $this->db->get('estados_viaje');

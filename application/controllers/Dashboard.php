@@ -340,7 +340,8 @@ class Dashboard extends CI_Controller {
 			                    ,'rut'=>$this->input->post('rut')
 			                    ,'edad'=>$this->input->post('edad')
 			                    ,'club'=>$this->input->post('club')
-			                    ,'telefono'=>$this->input->post('telefono'));
+			                    ,'telefono'=>$this->input->post('telefono')
+			                    ,'direccion'=>$this->input->post('direccion'));
 
 		$resp = $this->Dashboard_model->M_guardarAsistente($datosAsistentes);
 
@@ -353,6 +354,8 @@ class Dashboard extends CI_Controller {
 //FERMIIIIIIIIIIIIIIIIIIIIIIINNN*****************************
 		public function guardarUsuario(){
 
+		$id1=2;
+		$id2=2;
 
 		$datosAsistentes = array('id_perfil'=>$this->input->post('id')
 			                    ,'nombre_completo'=> $this->input->post('nombre')
@@ -361,6 +364,10 @@ class Dashboard extends CI_Controller {
 			                    ,'usuario'=>$this->input->post('club')
 			                    ,'password'=>sha1($this->input->post('telefono')));
 
+		$datosAsistentes2 = array('nombre'=> $this->input->post('delegacion'));
+
+		$resp2 = $this->Dashboard_model->M_guardarDelegacion($datosAsistentes2);//++++++++++++++
+
 		$resp = $this->Dashboard_model->M_guardarUsuario($datosAsistentes);
 
 		if($resp == 0){
@@ -368,8 +375,8 @@ class Dashboard extends CI_Controller {
 		}else{
 			echo $this->C_obtenerUsuario(1);
 		}
-	}
 
+	}
 
 
 

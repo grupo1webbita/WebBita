@@ -113,18 +113,26 @@ class Dashboard_model extends CI_Model {
 
 	}
 		//FEEERRRRRRRRRRRRRRRMIIIIIIIIIIIIIIIIIIIIIIIIIIINNNN************************
-	public function M_obtenerIdDelegaciones($dato){
+	public function M_obtenerIdUsuario($dato){
 		
 		$this->db->select('id_usuario');
 		$this->db->from('usuario');
 		$this->db->where('usuario', $dato);
 
 		$query = $this->db->get();
-//$this->db->get_where('usuario', array('id_delegacion' => 2));
 		
-
 		return $query->row_array();
+	}
 
+	public function M_obtenerIdDelegacion($dato){
+		
+		$this->db->select('id_delegacion');
+		$this->db->from('delegaciones');
+		$this->db->where('nombre', $dato);
+
+		$query = $this->db->get();
+		
+		return $query->row_array();
 	}
 
 	public function M_obtenerEstadosViaje(){
@@ -151,7 +159,11 @@ class Dashboard_model extends CI_Model {
 //FERMIIIIIIIIIIIIIIINNNNNNNN******************************************
 
 		public function M_borrarUsuario($id_usuario){
+		$this->db->delete('delegados_comunicaciones', array('id_usuario' => $id_usuario));
 		$this->db->delete('usuario', array('id_usuario' => $id_usuario));
+		$this->db->delete('delegaciones', array('id_delegacion' => $id_usuario));
+
+
 		return $this->db->affected_rows();
 	}
 

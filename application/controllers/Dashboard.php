@@ -354,21 +354,18 @@ class Dashboard extends CI_Controller {
 //FERMIIIIIIIIIIIIIIIIIIIIIIINNN*****************************
 		public function guardarUsuario(){
 
-		$id1=2;
-		$id2=2;
-
-		$datosAsistentes = array('id_perfil'=>$this->input->post('id')
+		$datosUsuarios = array('id_perfil'=>$this->input->post('id')
 			                    ,'nombre_completo'=> $this->input->post('nombre')
-			                    ,'edad'=>$this->input->post('rut')
-			                    ,'correo'=>$this->input->post('edad')
-			                    ,'usuario'=>$this->input->post('club')
-			                    ,'password'=>sha1($this->input->post('telefono')));
+			                    ,'edad'=>$this->input->post('age')
+			                    ,'correo'=>$this->input->post('mail')
+			                    ,'usuario'=>$this->input->post('user')
+			                    ,'password'=>sha1($this->input->post('pass')));
 
-		$datosAsistentes2 = array('nombre'=> $this->input->post('delegacion'));
+		$datosDelegacion = array('nombre'=> $this->input->post('delegacion'));
 
-		$resp2 = $this->Dashboard_model->M_guardarDelegacion($datosAsistentes2);//++++++++++++++
+		$resp2 = $this->Dashboard_model->M_guardarDelegacion($datosDelegacion);//++++++++++++++
 
-		$resp = $this->Dashboard_model->M_guardarUsuario($datosAsistentes);
+		$resp = $this->Dashboard_model->M_guardarUsuario($datosUsuarios);
 
 		if($resp == 0){
 			echo "ERROR";
@@ -376,7 +373,7 @@ class Dashboard extends CI_Controller {
 			echo $this->C_obtenerUsuario(1);
 		}
 
-		$resp3 =$this->Dashboard_model->M_obtenerIdUsuario($this->input->post('club'));
+		$resp3 =$this->Dashboard_model->M_obtenerIdUsuario($this->input->post('user'));
 		$resp4 =$this->Dashboard_model->M_obtenerIdDelegacion($this->input->post('delegacion'));
 
 
@@ -490,6 +487,7 @@ public function C_obtenerHistorialEstados($output = 0){
 	                    			<td>".$fila->rut."</td>
 	                    			<td>".$fila->edad."</td>
 	                    			<td>".$fila->telefono."</td>
+	                    			<td>".$fila->direccion."</td>
 	                    			<td>
 										
 	                    				<!-- <button type='button' class='btn btn-warning btn-flat btn-addon b_editar'><i class='ti-user'></i>Editar</button> -->

@@ -32,14 +32,14 @@
                                         <div class="form-group row">
                                             <label class="control-label col-md-3">Edad</label>
                                             <div class="col-md-9">
-                                                <input type="text" name="rut" class="form-control" placeholder="" required>
+                                                <input type="text" name="edad" class="form-control" placeholder="" required>
                                             </div>
                                         </div>
 
                                         <div class="form-group row">
                                             <label class="control-label col-md-3">Correo</label>
                                             <div class="col-md-9">
-                                                <input type="text" min="10" name="edad" class="form-control" required>
+                                                <input type="text" min="10" name="mail" class="form-control" required>
                                             </div>
                                         </div>
 
@@ -53,13 +53,13 @@
                                         <div class="form-group row">
                                             <label class="control-label col-md-3">Usuario</label>
                                             <div class="col-md-9">
-                                                <input type="text" name="club" class="form-control" placeholder="" required>
+                                                <input type="text" name="user" class="form-control" placeholder="" required>
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label class="control-label col-md-3">Contraseña</label>
                                             <div class="col-md-9">
-                                                <input type="password" name="fono" class="form-control" placeholder="" required>
+                                                <input type="password" name="pass" class="form-control" placeholder="" required>
                                             </div>
                                         </div>
                                         
@@ -96,9 +96,9 @@
                                             <tr>
                                                 <th>#</th>
                                                 <th>Nombre completoo</th>
-                                                <th>Rut</th>
                                                 <th>Edad</th>
-                                                <th>Teléfono</th>
+                                                <th>Correo</th>
+                                                <th>Usuario</th>
                                                 <th colspan="2">Opciones</th>
                                             </tr>
                                         </thead>
@@ -125,24 +125,23 @@
 
                 $('#registrarAsistente').on('click',function(){
 
-                    var Nombre   = $("input[name='nombreCompleto']").val();
-                    var Rut      = $("input[name='rut']").val();
-                    var Edad     = $("input[name='edad']").val();
-                    var Club     = $("input[name='club']").val();
-
-                    var Telefono = $("input[name='fono']").val();
-                    var Delegacion = $("input[name='delegacion']").val();//+++++++++++++++++++++++
+                    var Nombre      = $("input[name='nombreCompleto']").val();
+                    var Edad        = $("input[name='edad']").val();
+                    var Correo      = $("input[name='mail']").val();
+                    var Usuario     = $("input[name='user']").val();
+                    var Password    = $("input[name='pass']").val();
+                    var Delegacion  = $("input[name='delegacion']").val();
 
                     // inicio AJAX
                     $.ajax({
                         url: "<?php echo base_url('index.php/Dashboard/guardarUsuario/'); ?>",
                         type: "post",
                         data: { nombre:Nombre
-                               ,rut:Rut
-                               ,edad:Edad
+                               ,age:Edad
+                               ,mail:Correo
                                ,delegacion:Delegacion
-                               ,club:Club
-                               ,telefono:Telefono
+                               ,user:Usuario
+                               ,pass:Password
                                 ,id:2},
                         beforeSend:function(){
                             $("#cuerpo").html('<div class="row">\
@@ -158,10 +157,10 @@
                         },success:function(data){
                              $("#cuerpo").html(data);
                              $("input[name='nombreCompleto']").val("");
-                             $("input[name='rut']").val("");
                              $("input[name='edad']").val("");
-                             $("input[name='club']").val("");
-                             $("input[name='fono']").val("");
+                             $("input[name='mail']").val("");
+                             $("input[name='user']").val("");
+                             $("input[name='pass']").val("");
                              $("input[name='delegacion']").val("");//++++++++++++++++++++++++++
 
 

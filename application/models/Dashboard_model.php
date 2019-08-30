@@ -24,13 +24,13 @@ class Dashboard_model extends CI_Model {
 		return $this->db->affected_rows();
 	}
 	//Guaradar usuario (FerminKrause)
-	public function M_guardarUsuario($datosAsistentes){
-		$this->db->insert('usuario', $datosAsistentes);
+	public function M_guardarUsuario($datosUsuario){
+		$this->db->insert('usuario', $datosUsuario);
 		return $this->db->affected_rows();
 	}
 	//Guaradar usuario (FerminKrause)
-	public function M_guardarDelegacion($datosAsistentes){
-		$this->db->insert('delegaciones', $datosAsistentes); //++++++++++++++++++++++
+	public function M_guardarDelegacion($datosDelegacion){
+		$this->db->insert('delegaciones', $datosDelegacion); //++++++++++++++++++++++
 		return $this->db->affected_rows();
 	}
 	//Guaradar usuario (FerminKrause)

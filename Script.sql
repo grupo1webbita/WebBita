@@ -112,7 +112,8 @@ CREATE TABLE `estados_viaje` (
 
 INSERT INTO `estados_viaje` (`id_estados_viaje`, `nombre`) VALUES
 (1, 'En ruta'),
-(2, 'Parada para comer');
+(2, 'Parada para comer'),
+(3, 'En Hospedaje');
 
 -- --------------------------------------------------------
 

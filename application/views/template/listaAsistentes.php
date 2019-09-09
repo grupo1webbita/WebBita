@@ -1,4 +1,15 @@
 <!-- Page wrapper  -->
+<!-- Quitar scroll de <input type="number"...  -->
+<style>
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type=number] {
+    -moz-appearance:textfield;
+}
+</style> 
         <div class="page-wrapper">
             <!-- Bread crumb -->
             <div class="row page-titles">
@@ -33,14 +44,14 @@
                                         <div class="form-group row">
                                             <label class="control-label col-md-3">RUT</label>
                                             <div class="col-md-9">
-                                                <input type="text" name="rut" class="form-control" placeholder="11111111-1" required>
+                                                <input type="number" name="rut" class="form-control" placeholder="Ingrese rut sin puntos ni guion, CON dígito verificador" required>
                                             </div>
                                         </div>
 
                                         <div class="form-group row">
                                             <label class="control-label col-md-3">Edad</label>
                                             <div class="col-md-9">
-                                                <input type="number" min="10" name="edad" class="form-control" required>
+                                                <input type="number" script=""min="10" name="edad" class="form-control" placeholder="Edad" required>
                                             </div>
                                         </div>
 
@@ -115,7 +126,7 @@
                     </div>
                 </div>
 
-				
+			
 				
 
 			<script src="<?php echo base_url('assets/js/lib/jquery/jquery.min.js');?>"></script>
@@ -123,6 +134,9 @@
 
 
 				$('#registrarAsistente').on('click',function(){
+
+
+                
 
 					var Nombre   = $("input[name='nombreCompleto']").val();
 					var Rut      = $("input[name='rut']").val();

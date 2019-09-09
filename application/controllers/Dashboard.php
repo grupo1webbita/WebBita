@@ -343,6 +343,14 @@ class Dashboard extends CI_Controller {
 			                    ,'telefono'=>$this->input->post('telefono')
 			                    ,'direccion'=>$this->input->post('direccion'));
 
+		$validar = $this->validarRut($this->input->post('rut'));
+		
+
+		
+		if($validar == 0 ){
+			echo '<script language="javascript">alert("Rut ingresado invalido. Ingrese datos nuevamente.");</script>';
+		}else{
+
 		$resp = $this->Dashboard_model->M_guardarAsistente($datosAsistentes);
 
 		if($resp == 0){
@@ -350,8 +358,46 @@ class Dashboard extends CI_Controller {
 		}else{
 			echo $this->C_obtenerAsistentes(1);
 		}
+		}
 	}
-//FERMIIIIIIIIIIIIIIIIIIIIIIINNN*****************************
+
+		public function validarRut($trut){
+			$dvt = substr($trut, strlen($trut) - 1, strlen($trut));
+		    $rutt = substr($trut, 0, strlen($trut) - 1);
+		    $rut = (($rutt) + 0);
+		    $pa = $rut;
+		    $c = 2;
+		    $sum = 0;
+		    while ($rut > 0)
+		    {
+		        $a1 = $rut % 10;
+		        $rut = floor($rut / 10);
+		        $sum = $sum + ($a1 * $c);
+		        $c = $c + 1;
+		        if ($c == 8)
+		        {
+		            $c = 2;
+		        }
+		    }
+		    $di = $sum % 11;
+		    $digi = 11 - $di;
+		    $digi1 = ((string )($digi));
+		    if (($digi1 == '10'))
+		    {
+		        $digi1 = 'K';
+		    }
+		    if (($digi1 == '11'))
+		    {
+		        $digi1 = '0';
+		    }
+		    if (($dvt == $digi1))
+		    {
+		        return 1;
+		    } else
+		    {
+		        return 0;
+		    }
+        }
 		public function guardarUsuario(){
 
 		$datosUsuarios = array('id_perfil'=>$this->input->post('id')

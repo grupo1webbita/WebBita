@@ -344,20 +344,19 @@ class Dashboard extends CI_Controller {
 			                    ,'direccion'=>$this->input->post('direccion'));
 
 		$validar = $this->validarRut($this->input->post('rut'));
-		
-
-		
-		if($validar == 0 ){
-			echo '<script language="javascript">alert("Rut ingresado invalido. Ingrese datos nuevamente.");</script>';
-		}else{
 
 		$resp = $this->Dashboard_model->M_guardarAsistente($datosAsistentes);
-
-		if($resp == 0){
-			echo "ERROR";
+		
+		if($this->input->post('edad') >= 105 or $this->input->post('edad') <= 0){
+				echo '<script language="javascript">alert("Edad incorrecta, Ingrese la edad nuevamente.");</script>';
+		}else if($validar == 0 ){
+			echo '<script language="javascript">alert("Rut ingresado invalido. Ingrese datos nuevamente.");</script>';
 		}else{
-			echo $this->C_obtenerAsistentes(1);
-		}
+				if($resp == 0){
+					echo "ERROR";
+				}else{
+					echo $this->C_obtenerAsistentes(1);
+				}
 		}
 	}
 
